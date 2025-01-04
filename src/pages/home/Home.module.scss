@@ -1,0 +1,113 @@
+// breakpoints for custom styles
+$sm: 640px;
+
+.main {
+  @apply flex min-h-screen items-center justify-center bg-very-light-grayish-blue font-plus-jakarta-sans;
+
+  .box {
+    @apply rounded-xl bg-white px-4 py-5 sm:m-10 sm:px-6 sm:py-7;
+    width: 45rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    @media (width < $sm) {
+      width: 100%;
+    }
+
+    .header {
+      @apply flex items-center justify-between;
+
+      .hero {
+        @apply flex items-center gap-x-2 sm:gap-x-3;
+
+        h1 {
+          @apply text-xl font-bold text-very-dark-blue sm:text-2xl;
+        }
+
+        span {
+          @apply invisible rounded bg-blue px-2 font-bold text-white opacity-0;
+        }
+
+        &.active span {
+          @apply visible opacity-100;
+        }
+      }
+
+      .sub {
+        button {
+          @apply text-sm font-medium text-dark-grayish-blue transition duration-200 hover:text-blue;
+        }
+      }
+    }
+
+    .notifications {
+      @apply mt-6 space-y-2;
+
+      .notification {
+        @apply flex items-center justify-between gap-x-3 rounded-md p-3 transition duration-300 sm:p-4;
+
+        .hero {
+          @apply flex gap-x-3 sm:gap-x-5;
+
+          .userImage {
+            @apply h-10 w-10 sm:h-12 sm:w-12;
+          }
+
+          .content {
+            .text {
+              .mainText {
+                @apply text-sm text-dark-grayish-blue sm:text-base;
+                word-spacing: 2px;
+
+                .bold {
+                  @apply font-bold text-very-dark-blue;
+                }
+
+                .objectVarient1 {
+                  @apply font-bold text-dark-grayish-blue;
+                }
+
+                .objectVarient2 {
+                  @apply font-bold text-blue;
+                }
+
+                .bold,
+                .objectVarient1,
+                .objectVarient2 {
+                  @apply cursor-pointer transition duration-200;
+                }
+
+                .bold:hover,
+                .objectVarient1:hover {
+                  @apply text-blue;
+                }
+              }
+
+              .dot {
+                @apply invisible ml-2 inline-block h-2 w-2 rounded-full bg-red opacity-0;
+                margin-bottom: 2px;
+              }
+
+              .durationText {
+                @apply block text-sm text-grayish-blue sm:text-base;
+              }
+            }
+
+            .msgBox {
+              @apply mt-3 cursor-pointer rounded-md border p-4 text-sm text-dark-grayish-blue transition duration-300 hover:border-transparent hover:bg-light-grayish-blue-1 sm:text-base sm:leading-6;
+            }
+          }
+        }
+
+        .imageSub {
+          @apply w-11 cursor-pointer rounded-md outline outline-offset-1 outline-transparent transition-all duration-200 hover:outline-light-grayish-blue-2;
+        }
+
+        &.active {
+          @apply bg-very-light-grayish-blue;
+          .hero .content .dot {
+            @apply visible opacity-100;
+          }
+        }
+      }
+    }
+  }
+}
